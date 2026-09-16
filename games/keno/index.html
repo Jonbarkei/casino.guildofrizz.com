@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keno — Guild of Rizz Casino</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔢</text></svg>">
+<link rel="stylesheet" href="../../css/main.css">
+<link rel="stylesheet" href="keno.css">
+</head>
+<body data-root="../../">
+
+<div id="authGate" class="auth-gate"><div class="auth-gate-spinner"></div></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../../index.html" class="logo">🎰 GUILD OF <span class="accent">RIZZ</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="../../index.html">Lobby</a>
+      <a href="../mines/index.html">Mines</a>
+      <a href="../plinko/index.html">Plinko</a>
+      <a href="../blackjack/index.html">Blackjack</a>
+      <a href="../slots/index.html">Slots</a>
+      <a href="../dice/index.html">Dice</a>
+      <a href="../roulette/index.html">Roulette</a>
+      <a href="../keno/index.html" class="active">Keno</a>
+      <a href="../scratch/index.html">Scratchers</a>
+      <a href="../../leaderboard.html">🏆 Leaderboard</a>
+    </nav>
+    <div class="wallet">
+      <span class="wallet-label">Balance</span>
+      <span class="balance-amount">$0.00</span>
+      <button class="btn-reset" id="resetBalanceBtn">Reset</button>
+    </div>
+    <div class="user-chip">
+      <span class="user-email"></span>
+      <button class="btn-reset logout-btn" type="button">Log Out</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="page-wrap">
+    <h1 class="game-title">🔢 Keno</h1>
+    <p class="game-sub">Pick up to 10 numbers from the board. 20 are drawn — the more you match, the bigger the payout.</p>
+
+    <div class="game-shell">
+      <div class="controls-panel">
+        <div class="field">
+          <label for="betAmount">Bet Amount</label>
+          <div class="bet-input-group">
+            <span class="prefix">$</span>
+            <input type="number" id="betAmount" min="0.10" step="0.10" value="5.00">
+            <div class="bet-quick">
+              <button type="button" data-op="half">½</button>
+              <button type="button" data-op="double">2×</button>
+              <button type="button" data-op="max">Max</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px;">
+          <button class="btn btn-outline btn-block btn-sm" id="quickPickBtn" type="button">Quick Pick</button>
+          <button class="btn btn-outline btn-block btn-sm" id="clearPicksBtn" type="button">Clear</button>
+        </div>
+
+        <button class="btn btn-primary btn-block" id="playBtn" style="margin-top:14px;">Play</button>
+
+        <div class="divider"></div>
+        <div class="stat-row">
+          <span class="label">Picks</span>
+          <span class="value" id="pickCount">0 / 10</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Matches</span>
+          <span class="value" id="matchCount">—</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Round Result</span>
+          <span class="value" id="roundResult">—</span>
+        </div>
+
+        <div class="divider"></div>
+        <div class="paytable" id="paytable"></div>
+      </div>
+
+      <div class="stage-panel">
+        <div class="result-banner" id="resultBanner"></div>
+        <div class="keno-board" id="kenoBoard"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <strong>Guild of Rizz Casino</strong> — virtual chips only, for entertainment purposes.
+</footer>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="../../js/firebase-config.js"></script>
+<script src="../../js/auth.js"></script>
+<script src="../../js/balance.js"></script>
+<script src="keno.js"></script>
+</body>
+</html>

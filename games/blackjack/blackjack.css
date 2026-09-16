@@ -1,0 +1,114 @@
+.bj-table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.bj-dealer-area, .bj-hand-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.bj-label {
+  font-weight: 700;
+  color: var(--text-dim);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bj-total {
+  color: var(--gold-bright);
+  font-size: 15px;
+}
+
+.bj-cards {
+  display: flex;
+  gap: -10px;
+  min-height: 110px;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 72px;
+  height: 100px;
+  background: linear-gradient(160deg, #ffffff, #e9edf5);
+  border-radius: 8px;
+  margin-left: -22px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6px 7px;
+  font-weight: 800;
+  position: relative;
+  animation: deal-in 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.card:first-child { margin-left: 0; }
+
+.card.red { color: #d81e2f; }
+.card.black { color: #1a1a1a; }
+
+.card .rank-top { font-size: 18px; line-height: 1; }
+.card .suit-mid { font-size: 26px; text-align: center; }
+.card .rank-bot { font-size: 18px; line-height: 1; align-self: flex-end; transform: rotate(180deg); }
+
+.card.back {
+  background: repeating-linear-gradient(135deg, #1f2a4a, #1f2a4a 6px, #263258 6px, #263258 12px);
+  border: 1px solid #354270;
+}
+.card.back::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 2px solid rgba(245,184,0,0.3);
+  border-radius: 4px;
+}
+
+@keyframes deal-in {
+  from { opacity: 0; transform: translateY(-16px) rotate(-6deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+.bj-hands {
+  display: flex;
+  gap: 26px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.bj-hand-wrap {
+  padding: 14px 18px 18px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition: border-color 0.2s, background 0.2s;
+}
+.bj-hand-wrap.active-hand {
+  border-color: var(--gold);
+  background: rgba(245,184,0,0.05);
+}
+
+.hand-badge {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+.hand-badge.win { background: rgba(34,197,94,0.18); color: var(--green-bright); }
+.hand-badge.lose { background: rgba(239,68,68,0.18); color: var(--red-bright); }
+.hand-badge.push { background: rgba(139,148,172,0.18); color: var(--text-dim); }
+.hand-badge.blackjack { background: rgba(245,184,0,0.18); color: var(--gold-bright); }
+
+@media (max-width: 480px) {
+  .card { width: 56px; height: 80px; padding: 4px 5px; }
+  .card .rank-top, .card .rank-bot { font-size: 14px; }
+  .card .suit-mid { font-size: 20px; }
+}

@@ -1,0 +1,76 @@
+.login-main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  box-shadow: var(--shadow);
+}
+
+.login-logo {
+  font-family: 'Righteous', cursive;
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.login-logo .accent { color: var(--gold); }
+
+.login-sub {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 14px;
+  margin: 0 0 24px;
+}
+
+.login-tabs {
+  display: flex;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 22px;
+}
+.login-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  padding: 10px;
+  border-radius: 7px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.login-tab.active {
+  background: var(--gold);
+  color: #1a1200;
+}
+
+.login-card .bet-input-group input {
+  padding: 12px 14px;
+}
+
+.auth-error {
+  color: var(--red-bright);
+  font-size: 13px;
+  min-height: 18px;
+  margin: -6px 0 14px;
+}
+
+.login-note {
+  text-align: center;
+  color: var(--text-dimmer);
+  font-size: 12px;
+  margin: 18px 0 0;
+}

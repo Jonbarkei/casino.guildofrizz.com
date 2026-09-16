@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guild of Rizz Casino — Lobby</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎰</text></svg>">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body data-root="">
+
+<div id="authGate" class="auth-gate"><div class="auth-gate-spinner"></div></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">🎰 GUILD OF <span class="accent">RIZZ</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="index.html" class="active">Lobby</a>
+      <a href="games/mines/index.html">Mines</a>
+      <a href="games/plinko/index.html">Plinko</a>
+      <a href="games/blackjack/index.html">Blackjack</a>
+      <a href="games/slots/index.html">Slots</a>
+      <a href="games/dice/index.html">Dice</a>
+      <a href="games/roulette/index.html">Roulette</a>
+      <a href="games/keno/index.html">Keno</a>
+      <a href="games/scratch/index.html">Scratchers</a>
+      <a href="leaderboard.html">🏆 Leaderboard</a>
+    </nav>
+    <div class="wallet">
+      <span class="wallet-label">Balance</span>
+      <span class="balance-amount">$0.00</span>
+      <button class="btn-reset" id="resetBalanceBtn">Reset</button>
+    </div>
+    <div class="user-chip">
+      <span class="user-email"></span>
+      <button class="btn-reset logout-btn" type="button">Log Out</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Guild of Rizz Casino</h1>
+    <p>Play money only — no purchases, no withdrawals, no catch. Every account starts with $2,500 in chips to test your luck across five casino classics.</p>
+    <div class="hero-balance">
+      <span style="font-size:28px;">💰</span>
+      <div>
+        <div class="wallet-label" style="text-align:left;">Your chip stack</div>
+        <div class="balance-amount">$0.00</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-wrap" style="padding-top:0;">
+    <div class="panel mini-leaderboard">
+      <div class="mini-lb-header">
+        <h2>🏆 Top Players</h2>
+        <a href="leaderboard.html" class="mini-lb-link">View Full Leaderboard →</a>
+      </div>
+      <div id="miniLbLoading" class="mini-lb-loading">Loading top players...</div>
+      <ol id="miniLbList" class="mini-lb-list" style="display:none;"></ol>
+    </div>
+
+    <div class="game-grid">
+
+      <a class="game-card" href="games/mines/index.html">
+        <div class="thumb thumb-mines">💣</div>
+        <div class="info">
+          <h3>Mines <span class="badge badge-green">Skill</span></h3>
+          <p>Reveal gems on a 5×5 grid while dodging hidden mines. The more you clear, the higher your multiplier — cash out before you get too greedy.</p>
+          <div class="play-btn">Play Mines →</div>
+        </div>
+      </a>
+
+      <a class="game-card" href="games/plinko/index.html">
+        <div class="thumb thumb-plinko">🔴</div>
+        <div class="info">
+          <h3>Plinko <span class="badge badge-gold">Luck</span></h3>
+          <p>Drop the ball through a field of pegs and watch it bounce into a payout slot. Choose your risk level for wild swings or steady returns.</p>
+          <div class="play-btn">Play Plinko →</div>
+        </div>
+      </a>
+
+      <a class="game-card" href="games/blackjack/index.html">
+        <div class="thumb thumb-blackjack">🃏</div>
+        <div class="info">
+          <h3>Blackjack <span class="badge badge-blue">Classic</span></h3>
+          <p>Beat the dealer to 21. Hit, stand, double down, or split pairs in this full-rules table game with real blackjack payouts.</p>
+          <div class="play-btn">Play Blackjack →</div>
+        </div>
+      </a>
+
+      <a class="game-card" href="games/slots/index.html">
+        <div class="thumb thumb-slots">🎰</div>
+        <div class="info">
+          <h3>Slots <span class="badge badge-gold">Luck</span></h3>
+          <p>Spin the 3×3 reels across 5 paylines. Land the lucky sevens for the jackpot, or chase diamonds and bells for steady wins.</p>
+          <div class="play-btn">Play Slots →</div>
+        </div>
+      </a>
+
+      <a class="game-card" href="games/dice/index.html">
+        <div class="thumb thumb-dice">🎲</div>
+        <div class="info">
+          <h3>Dice <span class="badge badge-green">Skill</span></h3>
+          <p>Set your target, pick roll-over or roll-under, and dial in your exact win chance and payout multiplier before every roll.</p>
+          <div class="play-btn">Play Dice →</div>
+        </div>
+      </a>
+
+      <a class="game-card" href="games/roulette/index.html">
+        <div class="thumb thumb-roulette">🎡</div>
+        <div class="info">
+          <h3>Roulette <span class="badge badge-gold">Luck</span></h3>
+          <p>Place chips on numbers, colors, dozens, and columns on a full European single-zero table, then watch the wheel spin.</p>
+          <div class="play-btn">Play Roulette →</div>
+        </div>
+      </a>
+
+      <a class="game-card" href="games/keno/index.html">
+        <div class="thumb thumb-keno">🔢</div>
+        <div class="info">
+          <h3>Keno <span class="badge badge-gold">Luck</span></h3>
+          <p>Pick up to 10 lucky numbers from an 80-number board. Match as many as you can when the 20 balls are drawn.</p>
+          <div class="play-btn">Play Keno →</div>
+        </div>
+      </a>
+
+      <a class="game-card" href="games/scratch/index.html">
+        <div class="thumb thumb-scratch">🎟️</div>
+        <div class="info">
+          <h3>Scratchers <span class="badge badge-gold">Luck</span></h3>
+          <p>Buy a scratch-off ticket and drag to reveal it. Match 3 of the same symbol anywhere on the ticket to win instantly.</p>
+          <div class="play-btn">Play Scratchers →</div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="panel stats-card">
+      <div class="stats-card-header">
+        <h2>📊 Player Stats</h2>
+        <button class="btn btn-outline btn-sm" id="shareStatsBtn" type="button">📤 Share Stats Card</button>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-tile">
+          <div class="big" id="statBalance">$0.00</div>
+          <div class="lbl">Current Balance</div>
+        </div>
+        <div class="stat-tile">
+          <div class="big" id="statWagered">$0.00</div>
+          <div class="lbl">Total Wagered</div>
+        </div>
+        <div class="stat-tile">
+          <div class="big" id="statBets">0</div>
+          <div class="lbl">Bets Placed</div>
+        </div>
+        <div class="stat-tile">
+          <div class="big" id="statWon">$0.00</div>
+          <div class="lbl">Total Won</div>
+        </div>
+        <div class="stat-tile">
+          <div class="big" id="statNet">$0.00</div>
+          <div class="lbl">Net Total</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="modal-overlay" id="shareModalOverlay">
+  <div class="modal-card">
+    <button class="modal-close" id="closeShareModal" type="button" aria-label="Close">✕</button>
+    <canvas id="shareCanvas"></canvas>
+    <div class="modal-actions">
+      <button class="btn btn-primary btn-block" id="downloadCardBtn" type="button">Download PNG</button>
+      <button class="btn btn-outline btn-block" id="nativeShareBtn" type="button" style="display:none;">Share</button>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <strong>Guild of Rizz Casino</strong> — a free, for-fun demo casino. Virtual chips only, no real money involved.
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/balance.js"></script>
+<script src="js/share-card.js"></script>
+<script src="js/mini-leaderboard.js"></script>
+<script>
+  function refreshStats() {
+    const stats = Casino.getStats();
+    document.getElementById('statBalance').textContent = Casino.formatMoney(Casino.getBalance());
+    document.getElementById('statWagered').textContent = Casino.formatMoney(stats.wagered);
+    document.getElementById('statBets').textContent = stats.roundsPlayed.toLocaleString();
+    document.getElementById('statWon').textContent = Casino.formatMoney(stats.won);
+    const net = stats.won - stats.wagered;
+    const netEl = document.getElementById('statNet');
+    netEl.textContent = (net > 0 ? '+' : '') + Casino.formatMoney(net);
+    netEl.style.color = net > 0 ? 'var(--green-bright)' : (net < 0 ? 'var(--red-bright)' : 'var(--text)');
+  }
+  refreshStats();
+  window.addEventListener('balance-changed', refreshStats);
+</script>
+</body>
+</html>

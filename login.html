@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In — Guild of Rizz Casino</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎰</text></svg>">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="login.css">
+</head>
+<body data-root="" data-page="login">
+
+<div id="authGate" class="auth-gate"><div class="auth-gate-spinner"></div></div>
+
+<main class="login-main">
+  <div class="login-card">
+    <div class="login-logo">🎰 GUILD OF <span class="accent">RIZZ</span></div>
+    <p class="login-sub">Sign in to play with your saved chip balance, anywhere.</p>
+
+    <div class="login-tabs">
+      <button type="button" class="login-tab active" data-mode="signin">Sign In</button>
+      <button type="button" class="login-tab" data-mode="signup">Create Account</button>
+    </div>
+
+    <form id="authForm">
+      <div class="field">
+        <label for="email">Email</label>
+        <div class="bet-input-group">
+          <input type="email" id="email" autocomplete="email" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <div class="bet-input-group">
+          <input type="password" id="password" autocomplete="current-password" minlength="6" required>
+        </div>
+      </div>
+
+      <div id="authError" class="auth-error"></div>
+
+      <button type="submit" class="btn btn-primary btn-block" id="authSubmitBtn">Sign In</button>
+    </form>
+
+    <p class="login-note">New accounts start with a $2,500 chip stack. Passwords must be at least 6 characters.</p>
+  </div>
+</main>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/balance.js"></script>
+<script src="login.js"></script>
+</body>
+</html>
