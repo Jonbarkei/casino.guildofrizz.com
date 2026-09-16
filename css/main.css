@@ -107,6 +107,8 @@ a { color: inherit; text-decoration: none; }
 
 .main-nav a:hover { color: var(--text); background: var(--panel-light); }
 .main-nav a.active { color: var(--bg); background: var(--gold); }
+.main-nav a.admin-nav-link { color: var(--red-bright); }
+.main-nav a.admin-nav-link:hover { background: rgba(239,68,68,0.12); }
 
 .wallet {
   display: flex;

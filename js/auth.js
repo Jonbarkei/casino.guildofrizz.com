@@ -18,15 +18,32 @@
     document.querySelectorAll('.user-email').forEach(el => { el.textContent = user.email; });
   }
 
+  async function maybeShowAdminLink(uid) {
+    try {
+      const doc = await db.collection('admins').doc(uid).get();
+      if (!doc.exists) return;
+      document.querySelectorAll('.main-nav').forEach(nav => {
+        if (nav.querySelector('.admin-nav-link')) return;
+        const a = document.createElement('a');
+        a.href = root + 'admin.html';
+        a.className = 'admin-nav-link';
+        a.textContent = '🛡️ Admin';
+        nav.appendChild(a);
+      });
+    } catch (err) {
+      // Not an admin (or rules denied the read) — nothing to show.
+    }
+  }
+
   auth.onAuthStateChanged(async (user) => {
     if (user) {
       try {
-        const displayName = (user.email || 'Player').split('@')[0];
-        await Casino.hydrateFromCloud(user.uid, db, displayName);
+        await Casino.hydrateFromCloud(user.uid, db, user.email);
       } catch (err) {
         console.error('Failed to load cloud balance', err);
       }
       updateUserChips(user);
+      maybeShowAdminLink(user.uid);
       if (isLoginPage) {
         goTo('index.html');
         return;

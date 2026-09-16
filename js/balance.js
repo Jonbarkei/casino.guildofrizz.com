@@ -41,15 +41,19 @@ const Casino = (() => {
     cloudDisplayName = null;
   }
 
-  async function hydrateFromCloud(uid, dbInstance, displayName) {
+  async function hydrateFromCloud(uid, dbInstance, email) {
+    const displayName = (email || 'Player').split('@')[0];
     const ref = dbInstance.collection('users').doc(uid);
     const snap = await ref.get();
     if (snap.exists) {
       const data = snap.data();
       localStorage.setItem(STORAGE_KEY, String(data.balance ?? DEFAULT_BALANCE));
       localStorage.setItem(STATS_KEY, JSON.stringify(data.stats ?? { wagered: 0, won: 0, roundsPlayed: 0 }));
+      if (!data.email && email) {
+        ref.set({ email }, { merge: true }).catch(() => {});
+      }
     } else {
-      const initial = { balance: DEFAULT_BALANCE, stats: { wagered: 0, won: 0, roundsPlayed: 0 }, createdAt: Date.now() };
+      const initial = { balance: DEFAULT_BALANCE, stats: { wagered: 0, won: 0, roundsPlayed: 0 }, createdAt: Date.now(), email };
       await ref.set(initial);
       localStorage.setItem(STORAGE_KEY, String(DEFAULT_BALANCE));
       localStorage.setItem(STATS_KEY, JSON.stringify(initial.stats));

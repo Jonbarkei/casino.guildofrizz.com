@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Guild of Rizz Casino</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body data-root="">
+
+<div id="authGate" class="auth-gate"><div class="auth-gate-spinner"></div></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">🎰 GUILD OF <span class="accent">RIZZ</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="index.html">Lobby</a>
+      <a href="games/mines/index.html">Mines</a>
+      <a href="games/plinko/index.html">Plinko</a>
+      <a href="games/blackjack/index.html">Blackjack</a>
+      <a href="games/slots/index.html">Slots</a>
+      <a href="games/dice/index.html">Dice</a>
+      <a href="games/roulette/index.html">Roulette</a>
+      <a href="games/keno/index.html">Keno</a>
+      <a href="games/scratch/index.html">Scratchers</a>
+      <a href="leaderboard.html">🏆 Leaderboard</a>
+    </nav>
+    <div class="wallet">
+      <span class="wallet-label">Balance</span>
+      <span class="balance-amount">$0.00</span>
+      <button class="btn-reset" id="resetBalanceBtn">Reset</button>
+    </div>
+    <div class="user-chip">
+      <span class="user-email"></span>
+      <button class="btn-reset logout-btn" type="button">Log Out</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="page-wrap">
+    <h1 class="game-title">🛡️ Admin Panel</h1>
+    <p class="game-sub">View every player's profile and manually reset, add, or subtract chips.</p>
+
+    <div id="adminDenied" class="panel admin-denied" style="display:none;">
+      <h2>🚫 Access Denied</h2>
+      <p>Your account doesn't have admin access. If this is a mistake, ask the casino owner to grant it in the Firebase console.</p>
+      <a href="index.html" class="btn btn-primary">Back to Lobby</a>
+    </div>
+
+    <div id="adminContent" style="display:none;">
+      <div class="admin-toolbar">
+        <input type="text" id="adminSearch" class="admin-search" placeholder="Search by email...">
+        <div class="admin-summary" id="adminSummary"></div>
+        <button class="btn btn-outline btn-sm" id="refreshBtn" type="button">🔄 Refresh</button>
+      </div>
+
+      <div class="panel admin-panel">
+        <div id="adminLoading" class="lb-loading">Loading players...</div>
+        <div id="adminError" class="lb-error" style="display:none;"></div>
+        <div class="admin-table-wrap">
+          <table class="admin-table" id="adminTable" style="display:none;">
+            <thead>
+              <tr>
+                <th>Player</th>
+                <th class="num">Balance</th>
+                <th class="num">Wagered</th>
+                <th class="num">Won</th>
+                <th class="num">Net</th>
+                <th class="num">Rounds</th>
+                <th>Adjust</th>
+              </tr>
+            </thead>
+            <tbody id="adminBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <strong>Guild of Rizz Casino</strong> — a free, for-fun demo casino. Virtual chips only, no real money involved.
+</footer>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/balance.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
