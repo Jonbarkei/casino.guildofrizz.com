@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roulette — Guild of Rizz Casino</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎡</text></svg>">
+<link rel="stylesheet" href="../../css/main.css">
+<link rel="stylesheet" href="roulette.css">
+</head>
+<body data-root="../../">
+
+<div id="authGate" class="auth-gate"><div class="auth-gate-spinner"></div></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../../index.html" class="logo">🎰 GUILD OF <span class="accent">RIZZ</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="../../index.html">Lobby</a>
+      <a href="../mines/index.html">Mines</a>
+      <a href="../plinko/index.html">Plinko</a>
+      <a href="../blackjack/index.html">Blackjack</a>
+      <a href="../slots/index.html">Slots</a>
+      <a href="../dice/index.html">Dice</a>
+      <a href="../roulette/index.html" class="active">Roulette</a>
+      <a href="../keno/index.html">Keno</a>
+      <a href="../scratch/index.html">Scratchers</a>
+      <a href="../../leaderboard.html">🏆 Leaderboard</a>
+    </nav>
+    <div class="wallet">
+      <span class="wallet-label">Balance</span>
+      <span class="balance-amount">$0.00</span>
+      <button class="btn-reset" id="resetBalanceBtn">Reset</button>
+    </div>
+    <div class="user-chip">
+      <span class="user-email"></span>
+      <button class="btn-reset logout-btn" type="button">Log Out</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="page-wrap">
+    <h1 class="game-title">🎡 Roulette</h1>
+    <p class="game-sub">European single-zero wheel. Place chips anywhere on the table, then spin — straight numbers pay 35:1.</p>
+
+    <div class="game-shell">
+      <div class="controls-panel">
+        <div class="field">
+          <label>Chip Value</label>
+          <div class="chip-select" id="chipSelect">
+            <button type="button" class="chip-btn" data-value="1">$1</button>
+            <button type="button" class="chip-btn" data-value="5">$5</button>
+            <button type="button" class="chip-btn active" data-value="25">$25</button>
+            <button type="button" class="chip-btn" data-value="100">$100</button>
+            <button type="button" class="chip-btn" data-value="500">$500</button>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-block" id="spinBtn" style="margin-top:6px;">Spin</button>
+        <button class="btn btn-outline btn-block" id="clearBtn" style="margin-top:10px;">Clear Bets</button>
+
+        <div class="divider"></div>
+        <div class="stat-row">
+          <span class="label">Total Bet</span>
+          <span class="value" id="totalBet">$0.00</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Last Number</span>
+          <span class="value" id="lastNumber">—</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Round Result</span>
+          <span class="value" id="roundResult">—</span>
+        </div>
+
+        <div class="divider"></div>
+        <div class="history-strip" id="historyStrip"></div>
+      </div>
+
+      <div class="stage-panel">
+        <div class="result-banner" id="resultBanner"></div>
+
+        <div class="wheel-stage">
+          <div class="wheel-pointer"></div>
+          <div class="wheel-outer">
+            <div class="wheel-spin" id="wheelSpin"></div>
+            <div class="wheel-center" id="wheelCenter">—</div>
+          </div>
+        </div>
+
+        <div class="table-wrap" id="tableWrap"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <strong>Guild of Rizz Casino</strong> — virtual chips only, for entertainment purposes.
+</footer>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="../../js/firebase-config.js"></script>
+<script src="../../js/auth.js"></script>
+<script src="../../js/balance.js"></script>
+<script src="roulette.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+.mines-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 440px;
+}
+
+.mine-tile {
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(180deg, var(--panel-lighter), var(--panel-light));
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s, background 0.15s;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04);
+  user-select: none;
+}
+
+.mine-tile:hover:not(.revealed):not(.disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(245,184,0,0.15), 0 3px 0 rgba(0,0,0,0.35);
+  border-color: var(--gold);
+}
+
+.mine-tile.disabled { cursor: not-allowed; }
+.mine-tile.idle-disabled { cursor: default; opacity: 0.55; }
+
+.mine-tile.revealed {
+  transform: none;
+  cursor: default;
+}
+
+.mine-tile.gem {
+  background: linear-gradient(180deg, #1c3a2b, #14291f);
+  border-color: var(--green);
+  animation: pop 0.25s ease;
+}
+
+.mine-tile.bomb {
+  background: linear-gradient(180deg, #3a1c1c, #291414);
+  border-color: var(--red);
+  animation: shake 0.4s ease;
+}
+
+.mine-tile.bomb-dim {
+  background: linear-gradient(180deg, #2a1c1c, #201414);
+  border-color: var(--border);
+  opacity: 0.6;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.7); }
+  60% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+}
+
+@media (max-width: 480px) {
+  .mines-grid { max-width: 320px; gap: 7px; }
+  .mine-tile { font-size: 18px; }
+}

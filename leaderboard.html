@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaderboard — Guild of Rizz Casino</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏆</text></svg>">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="leaderboard.css">
+</head>
+<body data-root="">
+
+<div id="authGate" class="auth-gate"><div class="auth-gate-spinner"></div></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">🎰 GUILD OF <span class="accent">RIZZ</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="index.html">Lobby</a>
+      <a href="games/mines/index.html">Mines</a>
+      <a href="games/plinko/index.html">Plinko</a>
+      <a href="games/blackjack/index.html">Blackjack</a>
+      <a href="games/slots/index.html">Slots</a>
+      <a href="games/dice/index.html">Dice</a>
+      <a href="games/roulette/index.html">Roulette</a>
+      <a href="games/keno/index.html">Keno</a>
+      <a href="games/scratch/index.html">Scratchers</a>
+      <a href="leaderboard.html" class="active">🏆 Leaderboard</a>
+    </nav>
+    <div class="wallet">
+      <span class="wallet-label">Balance</span>
+      <span class="balance-amount">$0.00</span>
+      <button class="btn-reset" id="resetBalanceBtn">Reset</button>
+    </div>
+    <div class="user-chip">
+      <span class="user-email"></span>
+      <button class="btn-reset logout-btn" type="button">Log Out</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="page-wrap">
+    <h1 class="game-title">🏆 Leaderboard</h1>
+    <p class="game-sub">See how your chip stack stacks up against every other player at the casino.</p>
+
+    <div class="lb-tabs">
+      <button class="lb-tab active" data-metric="balance" type="button">💰 Richest Players</button>
+      <button class="lb-tab" data-metric="net" type="button">📈 Biggest Winners</button>
+      <button class="lb-tab" data-metric="wagered" type="button">🎲 Most Wagered</button>
+    </div>
+
+    <div class="panel lb-panel">
+      <div id="lbLoading" class="lb-loading">Loading leaderboard...</div>
+      <div id="lbError" class="lb-error" style="display:none;"></div>
+      <table class="lb-table" id="lbTable" style="display:none;">
+        <thead>
+          <tr>
+            <th class="lb-rank">Rank</th>
+            <th>Player</th>
+            <th class="lb-value">Value</th>
+          </tr>
+        </thead>
+        <tbody id="lbBody"></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <strong>Guild of Rizz Casino</strong> — a free, for-fun demo casino. Virtual chips only, no real money involved.
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/balance.js"></script>
+<script src="leaderboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blackjack — Guild of Rizz Casino</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🃏</text></svg>">
+<link rel="stylesheet" href="../../css/main.css">
+<link rel="stylesheet" href="blackjack.css">
+</head>
+<body data-root="../../">
+
+<div id="authGate" class="auth-gate"><div class="auth-gate-spinner"></div></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../../index.html" class="logo">🎰 GUILD OF <span class="accent">RIZZ</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="main-nav">
+      <a href="../../index.html">Lobby</a>
+      <a href="../mines/index.html">Mines</a>
+      <a href="../plinko/index.html">Plinko</a>
+      <a href="../blackjack/index.html" class="active">Blackjack</a>
+      <a href="../slots/index.html">Slots</a>
+      <a href="../dice/index.html">Dice</a>
+      <a href="../roulette/index.html">Roulette</a>
+      <a href="../keno/index.html">Keno</a>
+      <a href="../scratch/index.html">Scratchers</a>
+      <a href="../../leaderboard.html">🏆 Leaderboard</a>
+    </nav>
+    <div class="wallet">
+      <span class="wallet-label">Balance</span>
+      <span class="balance-amount">$0.00</span>
+      <button class="btn-reset" id="resetBalanceBtn">Reset</button>
+    </div>
+    <div class="user-chip">
+      <span class="user-email"></span>
+      <button class="btn-reset logout-btn" type="button">Log Out</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="page-wrap">
+    <h1 class="game-title">🃏 Blackjack</h1>
+    <p class="game-sub">Beat the dealer's hand without going over 21. Blackjack pays 3:2. Dealer stands on all 17s.</p>
+
+    <div class="game-shell">
+      <div class="controls-panel">
+        <div class="field">
+          <label for="betAmount">Bet Amount</label>
+          <div class="bet-input-group">
+            <span class="prefix">$</span>
+            <input type="number" id="betAmount" min="1" step="1" value="25.00">
+            <div class="bet-quick">
+              <button type="button" data-op="half">½</button>
+              <button type="button" data-op="double">2×</button>
+              <button type="button" data-op="max">Max</button>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-block" id="dealBtn" style="margin-top:6px;">Deal</button>
+
+        <div id="actionButtons" style="display:none; flex-direction:column; gap:10px; margin-top:10px;">
+          <div style="display:flex; gap:10px;">
+            <button class="btn btn-green btn-block" id="hitBtn">Hit</button>
+            <button class="btn btn-red btn-block" id="standBtn">Stand</button>
+          </div>
+          <div style="display:flex; gap:10px;">
+            <button class="btn btn-outline btn-block" id="doubleBtn">Double</button>
+            <button class="btn btn-outline btn-block" id="splitBtn">Split</button>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <div class="stat-row">
+          <span class="label">Shoe Remaining</span>
+          <span class="value" id="shoeCount">—</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Round Result</span>
+          <span class="value" id="roundResult">—</span>
+        </div>
+      </div>
+
+      <div class="stage-panel">
+        <div class="result-banner" id="resultBanner"></div>
+        <div class="bj-table">
+          <div class="bj-dealer-area">
+            <div class="bj-label">Dealer <span class="bj-total" id="dealerTotal"></span></div>
+            <div class="bj-cards" id="dealerCards"></div>
+          </div>
+          <div class="bj-hands" id="playerHandsContainer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <strong>Guild of Rizz Casino</strong> — virtual chips only, for entertainment purposes.
+</footer>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="../../js/firebase-config.js"></script>
+<script src="../../js/auth.js"></script>
+<script src="../../js/balance.js"></script>
+<script src="blackjack.js"></script>
+</body>
+</html>

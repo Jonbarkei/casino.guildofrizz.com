@@ -1,0 +1,13 @@
+#plinkoCanvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.stage-panel {
+  padding: 16px;
+}
+
+@media (max-width: 480px) {
+  .stage-panel { padding: 8px; min-height: 460px; }
+}

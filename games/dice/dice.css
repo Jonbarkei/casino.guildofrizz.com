@@ -1,0 +1,107 @@
+.toggle-group {
+  display: flex;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.toggle-btn {
+  flex: 1;
+  background: var(--bg-alt);
+  border: none;
+  color: var(--text-dim);
+  padding: 12px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.toggle-btn.active {
+  background: var(--gold);
+  color: #1a1200;
+}
+
+.dice-display {
+  width: 100%;
+  max-width: 560px;
+}
+
+.dice-track {
+  position: relative;
+  height: 46px;
+  border-radius: 8px;
+  overflow: visible;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+}
+
+.dice-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 8px;
+}
+.lose-zone { background: linear-gradient(90deg, rgba(239,68,68,0.35), rgba(239,68,68,0.15)); left: 0; width: 100%; }
+.win-zone { background: linear-gradient(90deg, rgba(34,197,94,0.15), rgba(34,197,94,0.35)); }
+
+.dice-marker {
+  position: absolute;
+  top: -6px;
+  width: 3px;
+  height: 58px;
+  background: var(--gold);
+  box-shadow: 0 0 8px var(--gold);
+  transform: translateX(-50%);
+}
+
+.dice-result {
+  position: absolute;
+  top: -34px;
+  transform: translateX(-50%);
+  background: var(--panel-lighter);
+  border: 1px solid var(--border);
+  padding: 4px 9px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 13px;
+  opacity: 0;
+  transition: opacity 0.2s, left 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+}
+.dice-result.show { opacity: 1; }
+.dice-result.win { color: var(--green-bright); border-color: var(--green); }
+.dice-result.lose { color: var(--red-bright); border-color: var(--red); }
+
+.dice-scale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  color: var(--text-dimmer);
+  font-size: 12px;
+}
+
+.roll-readout {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 15px;
+  color: var(--text-dim);
+  font-weight: 600;
+  min-height: 22px;
+}
+
+.roll-history {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.history-chip {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.history-chip.win { background: rgba(34,197,94,0.15); color: var(--green-bright); }
+.history-chip.lose { background: rgba(239,68,68,0.15); color: var(--red-bright); }
