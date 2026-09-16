@@ -1,6 +1,6 @@
 (() => {
   const GRID_SIZE = 25;
-  const HOUSE_EDGE = 8; // stupidly generous payout boost applied to fair odds
+  const HOUSE_EDGE = 0.97; // 3% house edge applied to fair odds
 
   const grid = document.getElementById('minesGrid');
   const betInput = document.getElementById('betAmount');

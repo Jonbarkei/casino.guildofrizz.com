@@ -45,11 +45,10 @@
     }
   }
 
-  // Stupidly generous payouts — every bet type pays a multiple of the real thing.
   function multFor(key) {
-    if (key.startsWith('num-')) return 200;
-    if (key.startsWith('dozen') || key.startsWith('col')) return 10;
-    return 5;
+    if (key.startsWith('num-')) return 35;
+    if (key.startsWith('dozen') || key.startsWith('col')) return 2;
+    return 1;
   }
 
   function pt(angleDeg, radius) {
@@ -120,9 +119,9 @@
     const columnsRow = document.createElement('div');
     columnsRow.className = 'bet-row columns-row';
     columnsRow.appendChild(spacer());
-    columnsRow.appendChild(makeCell('col3', '10:1', '', 'Top row (3,6,9…36)'));
-    columnsRow.appendChild(makeCell('col2', '10:1', '', 'Middle row (2,5,8…35)'));
-    columnsRow.appendChild(makeCell('col1', '10:1', '', 'Bottom row (1,4,7…34)'));
+    columnsRow.appendChild(makeCell('col3', '2:1', '', 'Top row (3,6,9…36)'));
+    columnsRow.appendChild(makeCell('col2', '2:1', '', 'Middle row (2,5,8…35)'));
+    columnsRow.appendChild(makeCell('col1', '2:1', '', 'Bottom row (1,4,7…34)'));
     outside.appendChild(columnsRow);
 
     const dozensRow = document.createElement('div');

@@ -16,11 +16,10 @@
   const PEG_RADIUS = 5;
   const BALL_RADIUS = 8;
 
-  // Stupidly generous payout tables — even the "worst" slots pay out big.
   const MULTIPLIERS = {
-    low:    [50, 20, 10, 8, 6, 4, 2, 4, 6, 8, 10, 20, 50],
-    medium: [150, 60, 25, 12, 8, 4, 2, 4, 8, 12, 25, 60, 150],
-    high:   [500, 150, 50, 20, 8, 3, 1, 3, 8, 20, 50, 150, 500]
+    low:    [8.5, 3, 1.5, 1.2, 1.1, 1, 0.5, 1, 1.1, 1.2, 1.5, 3, 8.5],
+    medium: [24, 9, 3, 1.8, 1.2, 0.6, 0.4, 0.6, 1.2, 1.8, 3, 9, 24],
+    high:   [76, 18, 6, 2.5, 0.7, 0.3, 0.2, 0.3, 0.7, 2.5, 6, 18, 76]
   };
 
   const betInput = document.getElementById('betAmount');

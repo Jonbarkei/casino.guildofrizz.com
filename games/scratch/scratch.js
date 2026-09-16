@@ -1,5 +1,5 @@
 (() => {
-  const MULTS = [5, 10, 20, 50, 100, 500]; // stupidly generous prizes
+  const MULTS = [1, 2, 3, 5, 10, 50];
   const WIN_WEIGHTS = [40, 25, 15, 12, 6, 2];
   const WIN_CHANCE = 0.26;
   const REVEAL_THRESHOLD = 0.5;

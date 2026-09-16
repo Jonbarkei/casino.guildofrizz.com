@@ -209,10 +209,10 @@
         finishRound('Both blackjack — Push', 'push');
       } else if (playerBJ) {
         state.hands[0].result = 'blackjack';
-        const payout = bet + bet * 10;
+        const payout = bet + bet * 1.5;
         Casino.addBalance(payout);
         Casino.recordRound(bet, payout);
-        finishRound(`Blackjack! +${Casino.formatMoney(bet * 10)}`, 'win');
+        finishRound(`Blackjack! +${Casino.formatMoney(bet * 1.5)}`, 'win');
       } else {
         state.hands[0].result = 'lose';
         Casino.recordRound(bet, 0);
@@ -354,13 +354,13 @@
 
       if (dealerBust) {
         hand.result = 'win';
-        const payout = hand.bet * 4;
+        const payout = hand.bet * 2;
         Casino.addBalance(payout);
         Casino.recordRound(hand.bet, payout);
         totalReturn += payout;
       } else if (playerHand.total > dealerHand.total) {
         hand.result = 'win';
-        const payout = hand.bet * 4;
+        const payout = hand.bet * 2;
         Casino.addBalance(payout);
         Casino.recordRound(hand.bet, payout);
         totalReturn += payout;

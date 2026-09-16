@@ -1,13 +1,12 @@
 (() => {
-  // Stupidly generous payout table — every symbol pays big.
   const SYMBOLS = [
-    { icon: '🍒', weight: 30, payout: 100 },
-    { icon: '🍋', weight: 25, payout: 150 },
-    { icon: '🍇', weight: 20, payout: 250 },
-    { icon: '🔔', weight: 12, payout: 500 },
-    { icon: '⭐', weight: 7, payout: 1000 },
-    { icon: '💎', weight: 4, payout: 2500 },
-    { icon: '7️⃣', weight: 2, payout: 5000 }
+    { icon: '🍒', weight: 30, payout: 10 },
+    { icon: '🍋', weight: 25, payout: 15 },
+    { icon: '🍇', weight: 20, payout: 25 },
+    { icon: '🔔', weight: 12, payout: 50 },
+    { icon: '⭐', weight: 7, payout: 100 },
+    { icon: '💎', weight: 4, payout: 250 },
+    { icon: '7️⃣', weight: 2, payout: 500 }
   ];
   const TOTAL_WEIGHT = SYMBOLS.reduce((s, x) => s + x.weight, 0);
   const NUM_LINES = 5;

@@ -1,5 +1,5 @@
 (() => {
-  const HOUSE_EDGE = 5; // stupidly generous payout boost
+  const HOUSE_EDGE = 0.97;
 
   const betInput = document.getElementById('betAmount');
   const rollUnderBtn = document.getElementById('rollUnderBtn');
